@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: learn-k3s-service
+spec:
+  selector:
+    app: learn-k3s
+  ports:
+  - protocol: "TCP"
+    port: 8081
+    targetPort: 8081
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learn-k3s
+spec:
+  selector:
+    matchLabels:
+      app: learn-k3s
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: learn-k3s
+    spec:
+      containers:
+      - name: learn-k3s
+        image: learn-k3s:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8081
