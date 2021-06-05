@@ -7,7 +7,7 @@ spec:
     app: learn-k3s
   ports:
   - protocol: "TCP"
-    port: 8081
+    port: 9091
     targetPort: 8081
   type: LoadBalancer
 
@@ -20,7 +20,7 @@ spec:
   selector:
     matchLabels:
       app: learn-k3s
-  replicas: 1
+  replicas: 4
   template:
     metadata:
       labels:
@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: learn-k3s
-        image: learn-k3s:latest
+        image: pavelzagalsky/learn-k3s:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8081
