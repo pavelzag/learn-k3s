@@ -20,7 +20,7 @@ spec:
   selector:
     matchLabels:
       app: learn-k3s
-  replicas: 4
+  replicas: 1
   template:
     metadata:
       labels:
