@@ -12,7 +12,7 @@ def hello():
 
 
 @app.route("/json")
-def json():
+def jsond():
     return Response(json.dumps(JSON_RESPONSE), status=200, mimetype='application/json')
 
 
